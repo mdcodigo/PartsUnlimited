@@ -55,9 +55,21 @@ jobs:
 
       - name: Build with dotnet
         run: dotnet build PartsUnlimited.sln --configuration Release
-
+        
+        
+      - name: Build SASS
+        run: |
+          npm install --python
+          npm config set python python2.7
+          npm install -g grunt-cli
+          
+      - name: Grunt
+        run: |
+          cd .\src\PartsUnlimitedWebsite\
+          grunt
+          
       - name: dotnet publish
-        run: dotnet publish -c Release -o ${{env.DOTNET_ROOT}}/myapp
+        run: dotnet publish PartsUnlimited.sln -c Release -o ${{env.DOTNET_ROOT}}/myapp
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v3
