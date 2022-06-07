@@ -64,7 +64,7 @@ jobs:
       - name: Build SASS
         run: |
           cd src/PartsUnlimitedWebsite/
-          npm install --python
+          npm install --python=python2.7
           npm config set python python2.7
           npm install grunt-cli
           grunt
