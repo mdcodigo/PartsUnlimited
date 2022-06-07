@@ -56,7 +56,11 @@ jobs:
       - name: Build with dotnet
         run: dotnet build PartsUnlimited.sln --configuration Release
         
-        
+      - name: Install Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 14
+
       - name: Build SASS
         run: |
           npm install --python
