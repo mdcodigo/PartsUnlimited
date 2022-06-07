@@ -56,18 +56,18 @@ jobs:
       - name: Build with dotnet
         run: dotnet build PartsUnlimited.sln --configuration Release
         
-      - name: Install Node
-        uses: actions/setup-node@v3
-        with:
-          node-version: 14
+#      - name: Install Node
+#        uses: actions/setup-node@v3
+#        with:
+#          node-version: 14
 
-      - name: Build SASS
-        run: |
-          cd src/PartsUnlimitedWebsite/
-          npm install --python=python2.7
-          npm config set python python2.7
-          npm install grunt-cli
-          grunt
+#      - name: Build SASS
+#        run: |
+#          cd src/PartsUnlimitedWebsite/
+#          npm install --python=python2.7
+#          npm config set python python2.7
+#          npm install grunt-cli
+#          grunt
                     
       - name: dotnet publish
         run: dotnet publish PartsUnlimited.sln -c Release -o ${{env.DOTNET_ROOT}}/myapp
